@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('PRODUCTION', True) == 'False'
+DEBUG = os.getenv('PRODUCTION', 'False') == 'False'
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -106,8 +106,8 @@ DATABASES = {
     # }
 }
 
-if DEBUG:
-    del DATABASES['default']['OPTIONS']['sslmode']
+# if DEBUG:
+#     del DATABASES['default']['OPTIONS']['sslmode']
 if not DEBUG:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
