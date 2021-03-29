@@ -31,12 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('PRODUCTION', 'False') == 'False'
 
-ALLOWED_HOSTS = [
-    '0.0.0.0',
-    '127.0.0.1',
-    'localhost',
-    'herokuapp.com',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -111,6 +106,7 @@ DATABASES = {
 if not DEBUG:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
+    django_heroku.settings(locals())
 
 
 # Password validation
@@ -162,7 +158,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# django_heroku.settings(locals())
+
 
 LOGIN_URL = reverse_lazy('users:login')
 LOGIN_REDIRECT_URL = reverse_lazy('root')
