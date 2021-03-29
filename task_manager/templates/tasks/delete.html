@@ -14,6 +14,6 @@
 <p>  {% translate 'Вы уверены, что хотите удалить' %} {{ task.name }}</p>
 <form method="post">
     {% csrf_token %}
-    <input class="btn btn-danger" type="submit" value={% translate 'Да, удалить' %}>
+    <input class="btn btn-danger" type="submit" value="{% translate 'Да, удалить' %}">
 </form>
 {% endblock content %}
