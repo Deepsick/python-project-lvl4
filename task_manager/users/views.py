@@ -23,7 +23,7 @@ class CreateUserView(SuccessMessageMixin, CreateView):
     model = get_user_model()
     template_name = 'users/create.html'
     form_class = UserForm
-    success_message = _("Регистрация прошла успешна")
+    success_message = _("Пользователь успешно зарегистрирован")
     success_url = reverse_lazy('login')
 
 
@@ -37,7 +37,7 @@ class UpdateUserView(
     model = get_user_model()
     form_class = UserForm
     template_name = 'users/update.html'
-    success_message = _('Пользователь успешно обновлен')
+    success_message = _('Пользователь успешно изменён')
 
 
 class DeleteUserView(
@@ -50,7 +50,7 @@ class DeleteUserView(
     model = get_user_model()
     template_name = 'users/delete.html'
     success_url = reverse_lazy('users:index')
-    success_message = _('Пользователь успешно удален')
+    success_message = _('Пользователь успешно удалён')
 
     def delete(self, request, *args, **kwargs):
         try:

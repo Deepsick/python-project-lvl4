@@ -39,7 +39,7 @@ class UpdateStatusView(
     model = Status
     fields = ['name']
     template_name = 'statuses/update.html'
-    success_message = _('Статус успешно обновлен')
+    success_message = _('Статус успешно изменён')
     success_url = reverse_lazy('statuses:index')
 
 
@@ -51,7 +51,7 @@ class DeleteStatusView(
 ):
     model = Status
     template_name = 'statuses/delete.html'
-    success_message = _('Статус успешно удален')
+    success_message = _('Статус успешно удалён')
     success_url = reverse_lazy('statuses:index')
 
     def delete(self, request, *args, **kwargs):

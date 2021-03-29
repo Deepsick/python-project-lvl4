@@ -26,7 +26,7 @@ class CreateLabelView(
     model = Label
     fields = ['name']
     template_name = 'labels/create.html'
-    success_message = _('Метка успешна создана')
+    success_message = _('Метка успешно создана')
     success_url = reverse_lazy('labels:index')
 
 
@@ -39,7 +39,7 @@ class UpdateLabelView(
     model = Label
     fields = ['name']
     template_name = 'labels/update.html'
-    success_message = _('Метка успешна обновлена')
+    success_message = _('Метка успешно изменена')
     success_url = reverse_lazy('labels:index')
 
 
@@ -51,7 +51,7 @@ class DeleteLabelView(
 ):
     model = Label
     template_name = 'labels/delete.html'
-    success_message = _('Метка успешна удалена')
+    success_message = _('Метка успешно удалена')
     success_url = reverse_lazy('labels:index')
 
     def delete(self, request, *args, **kwargs):

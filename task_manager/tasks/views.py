@@ -28,7 +28,7 @@ class CreateTaskView(
     model = Task
     fields = ['name', 'description', 'status', 'executor', 'labels']
     template_name = 'tasks/create.html'
-    success_message = _('Задание успешно создано')
+    success_message = _('Задача успешно создана')
     success_url = reverse_lazy('tasks:index')
 
     def form_valid(self, form):

@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: task_manager/labels/views.py:29
-msgid "Метка успешна создана"
+msgid "Метка успешно создана"
 msgstr "The label was successfully created"
 
 #: task_manager/labels/views.py:42
-msgid "Метка успешна обновлена"
+msgid "Метка успешно изменена"
 msgstr "The label was successfully updated"
 
 #: task_manager/labels/views.py:54
-msgid "Метка успешна удалена"
+msgid "Метка успешно удалена"
 msgstr "The label was successfully deleted"
 
 #: task_manager/statuses/views.py:29
@@ -34,11 +34,11 @@ msgid "Статус успешно создан"
 msgstr "The status was successfully created"
 
 #: task_manager/statuses/views.py:42
-msgid "Статус успешно обновлен"
+msgid "Статус успешно изменён"
 msgstr "The status was successfully updated"
 
 #: task_manager/statuses/views.py:54
-msgid "Статус успешно удален"
+msgid "Статус успешно удалён"
 msgstr "The status was successfully deleted"
 
 #: task_manager/tasks/mixins.py:13
@@ -46,7 +46,7 @@ msgid "Только автор может удалить свое задание
 msgstr "Only author can delete his tasks"
 
 #: task_manager/tasks/views.py:31
-msgid "Задание успешно создано"
+msgid "Задача успешно создана"
 msgstr "The task was successfully created"
 
 #: task_manager/tasks/views.py:48
@@ -294,7 +294,7 @@ msgid "Вы не можете редактировать чужик аккаун
 msgstr "You can edit only your account"
 
 #: task_manager/users/views.py:26
-msgid "Регистрация прошла успешна"
+msgid "Пользователь успешно зарегистрирован"
 msgstr "You were successfully signed up"
 
 #: task_manager/users/views.py:32
@@ -306,9 +306,9 @@ msgid "Вы разлогинены"
 msgstr "You are logged out"
 
 #: task_manager/users/views.py:49
-msgid "Пользователь успешно обновлен"
+msgid "Пользователь успешно изменён"
 msgstr "The user was successfully updated"
 
 #: task_manager/users/views.py:62
-msgid "Пользователь успешно удален"
+msgid "Пользователь успешно удалён"
 msgstr "The user was successfully deleted"
