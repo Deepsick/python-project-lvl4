@@ -1,0 +1,18 @@
+[
+{
+    "model": "labels.label",
+    "pk": 1,
+    "fields": {
+        "name": "one",
+        "created_at": "2021-03-27T15:03:48.558Z"
+    }
+},
+{
+    "model": "labels.label",
+    "pk": 3,
+    "fields": {
+        "name": "one more",
+        "created_at": "2021-03-27T15:03:54.508Z"
+    }
+}
+]

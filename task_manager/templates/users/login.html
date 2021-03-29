@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block title %} {% translate 'Вход' %}{% endblock title %}
+
+{% block content %}
+
+  <h1 class="my-4">
+        
+ {% translate 'Вход' %}
+
+      </h1>
+
+<form method="post">
+    {% csrf_token %}
+     {% bootstrap_form form %}
+        <input class="btn btn-primary" type="submit" value={% translate 'Войти' %}>
+</form>
+{% endblock content %}

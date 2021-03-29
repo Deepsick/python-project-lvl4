@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block title %} {% translate 'Просмотр задачи' %} {% endblock title %}
+
+{% block content %}
+
+  <h1 class="my-4">
+        {% translate 'Просмотр задачи' %}
+
+
+      </h1>
+
+<div class="card">
+  <div class="card-header bg-secondary text-white">
+    <h2>{{ task.name }}</h2>
+  </div>
+  <div class="card-body bg-light">
+    <p>{{ task.description }}</p>
+    <hr>
+    <div class="container">
+      <div class="row p-1">
+        <div class="col">{% translate 'Автор' %}</div>
+        <div class="col">{{ task.author }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% translate 'Исполнитель' %}</div>
+        <div class="col">{{ task.executor }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% translate 'Статус' %}</div>
+        <div class="col"> {{ task.status }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">{% translate 'Дата создания' %}</div>
+        <div class="col">{{ task.created_at|date:"d.m.Y G:i" }}</div>
+      </div>
+      <div class="row p-1">
+        <div class="col">
+          <h6>{% translate 'Метки' %}:</h6>
+          <ul>
+
+              {% for label in task.labels.all %}
+                <li>{{ label }}</li>
+              {% endfor %}
+            
+          </ul>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col">
+          <a href={% url 'tasks:update' task.id %}>{% translate 'Изменить' %}</a>
+          <br>
+          <a href={% url 'tasks:delete' task.id %}>{% translate 'Удалить' %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+  

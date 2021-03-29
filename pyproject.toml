@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Task manager project"
+authors = ["Deepsick"]
+packages = [
+  { include = "task_manager" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^3.1.7"
+gunicorn = "^20.0.4"
+django-heroku = "^0.3.1"
+python-dotenv = "^0.15.0"
+django-bootstrap4 = "^2.3.1"
+django-filter = "^2.4.0"
+rollbar = "^0.15.2"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.6"
+flake8 = "^3.9.0"
+coverage = "^5.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

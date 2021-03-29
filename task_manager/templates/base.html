@@ -1,0 +1,68 @@
+{% load i18n %}
+{% load bootstrap4 %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang={{ LANGUAGE_CODE }}>
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% translate 'Менеджер задач' %} {% endblock title %}</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100" data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" href={% url 'root' %}>{% translate 'Менеджер задач' %}</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggleExternalContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'users:index' %}>{% translate 'Пользователи' %}</a>
+        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'statuses:index' %}>{% translate 'Статусы' %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'labels:index' %}>{% translate 'Метки' %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'tasks:index' %}>{% translate 'Задачи' %}</a>
+          </li>
+        {% endif %}
+
+      </ul>
+      <ul class="navbar-nav">
+      {% if user.is_authenticated %}
+        <form action={% url 'users:logout' %} method="post">
+            {% csrf_token %}
+            <input class="btn nav-link" type="submit" value={% translate 'Выход' %}>
+        </form>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'users:login' %}>{% translate 'Вход' %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'users:create' %}>{% translate 'Регистрация' %}</a>
+        </li>
+      {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <div class="container wrapper flex-grow-1">
+    {% bootstrap_messages %}
+    {% block content %}{% endblock content %}
+  </div>
+  <footer>
+    <div class="container my-5 pt-4 border-top">
+      <a target="_blank" href="https://ru.hexlet.io/">Hexlet</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
