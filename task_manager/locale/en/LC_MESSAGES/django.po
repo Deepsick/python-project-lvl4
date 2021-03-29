@@ -298,11 +298,11 @@ msgid "Регистрация прошла успешна"
 msgstr "You were successfully signed up"
 
 #: task_manager/users/views.py:32
-msgid "Вы успешно авторизованы"
+msgid "Вы залогинены"
 msgstr "You are logged in"
 
 #: task_manager/users/views.py:36
-msgid "Вы успешно вышли из аккаунта"
+msgid "Вы разлогинены"
 msgstr "Are are logged out"
 
 #: task_manager/users/views.py:49

@@ -29,11 +29,11 @@ class CreateUserView(SuccessMessageMixin, CreateView):
 
 class LoginUserView(SuccessMessageMixin, auth_views.LoginView):
     template_name = 'users/login.html'
-    success_message = _('Вы успешно авторизованы')
+    success_message = _('Вы залогинены')
 
 
 class LogoutUserView(SuccessMessageMixin, auth_views.LogoutView):
-    success_message = _('Вы успешно вышли из аккаунта')
+    success_message = _('Вы разлогинены')
 
 
 class UpdateUserView(
