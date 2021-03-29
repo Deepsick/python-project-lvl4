@@ -303,7 +303,7 @@ msgstr "You are logged in"
 
 #: task_manager/users/views.py:36
 msgid "Вы разлогинены"
-msgstr "Are are logged out"
+msgstr "You are logged out"
 
 #: task_manager/users/views.py:49
 msgid "Пользователь успешно обновлен"

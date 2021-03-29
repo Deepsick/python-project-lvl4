@@ -35,6 +35,10 @@ class LoginUserView(SuccessMessageMixin, auth_views.LoginView):
 class LogoutUserView(SuccessMessageMixin, auth_views.LogoutView):
     success_message = _('Вы разлогинены')
 
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, self.success_message)
+        return super().dispatch(request, *args, **kwargs)
+
 
 class UpdateUserView(
     FailureMessageMixin,
