@@ -97,11 +97,11 @@ msgid "Задача успешно создана"
 msgstr "The task was successfully created"
 
 #: task_manager/tasks/views.py:48
-msgid "Задание успешно обновлено"
+msgid "Задача успешно изменена"
 msgstr "The task was successfully updated"
 
 #: task_manager/tasks/views.py:61
-msgid "Задание успешно удалено"
+msgid "Задача успешно удалена"
 msgstr "The task was successfully deleted"
 
 #: task_manager/templates/base.html:12 task_manager/templates/base.html:17

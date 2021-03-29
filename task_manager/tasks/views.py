@@ -45,7 +45,7 @@ class UpdateTaskView(
     model = Task
     fields = ['name', 'description', 'status', 'executor', 'labels']
     template_name = 'tasks/update.html'
-    success_message = _('Задание успешно обновлено')
+    success_message = _('Задача успешно изменена')
     success_url = reverse_lazy('tasks:index')
 
 
@@ -58,7 +58,7 @@ class DeleteTaskView(
 ):
     model = Task
     template_name = 'tasks/delete.html'
-    success_message = _('Задание успешно удалено')
+    success_message = _('адача успешно удалена')
     success_url = reverse_lazy('tasks:index')
 
     def delete(self, request, *args, **kwargs):

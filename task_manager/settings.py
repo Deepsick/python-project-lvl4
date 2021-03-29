@@ -31,7 +31,13 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('PRODUCTION', 'False') == 'False'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'localhost',
+    '0.0.0.0',
+    '127.0.0.1',
+    '.herokuapp.com',
+
+]
 
 
 # Application definition
@@ -107,6 +113,12 @@ if not DEBUG:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
     django_heroku.settings(locals())
+    ROLLBAR = {
+        'access_token': os.getenv('ROLLBAR_TOKEN'),
+        'environment': 'development' if DEBUG else 'production',
+        'branch': 'master',
+        'root': os.getcwd(),
+    }
 
 
 # Password validation
@@ -126,14 +138,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-if not DEBUG:
-    ROLLBAR = {
-        'access_token': os.getenv('ROLLBAR_TOKEN'),
-        'environment': 'development' if DEBUG else 'production',
-        'branch': 'master',
-        'root': os.getcwd(),
-    }
 
 
 # Internationalization
