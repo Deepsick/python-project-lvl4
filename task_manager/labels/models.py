@@ -1,11 +1,10 @@
 from django.db import models
-
-# Create your models here.
+from django.utils.translation import gettext_lazy as _
 
 
 class Label(models.Model):
-    name = models.CharField('name', max_length=50, unique=True)
-    created_at = models.DateTimeField('created_at', auto_now_add=True)
+    name = models.CharField(_('name'), max_length=50, unique=True)
+    created_at = models.DateTimeField(_('created_at'), auto_now_add=True)
 
     def __str__(self):
         return self.name
