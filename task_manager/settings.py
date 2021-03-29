@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('PRODUCTION') == 'False'
+DEBUG = os.getenv('PRODUCTION', True) == 'False'
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -106,9 +106,11 @@ DATABASES = {
     # }
 }
 
-# if os.getenv('PRODUCTION') == 'True':
-#     db_from_env = dj_database_url.config(conn_max_age=500)
-#     DATABASES['default'].update(db_from_env)
+if DEBUG:
+    del DATABASES['default']['OPTIONS']['sslmode']
+if not DEBUG:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 
 # Password validation
