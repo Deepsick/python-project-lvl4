@@ -32,6 +32,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'test_key')
 DEBUG = os.getenv('PRODUCTION', 'False') == 'False'
 
 ALLOWED_HOSTS = [
+    '0.0.0.0',
+    '127.0.0.1',
     'localhost',
     'herokuapp.com',
 ]
