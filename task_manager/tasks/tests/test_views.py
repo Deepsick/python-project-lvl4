@@ -81,7 +81,7 @@ class TaskViewsTest(TestCase):
         current_task = self.create_task()
         updated_task = self.data['updated']
         response = self.client.post(
-            reverse('tasks:update', args=[current_task.id]),  updated_task)
+            reverse('tasks:update', args=[current_task.id]), updated_task)
         db_task = Task.objects.get(id=current_task.id)
 
         self.assertRedirects(response, reverse('tasks:index'))

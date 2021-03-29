@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import get_user_model
 from .utils import read_fixture
 
+
 class RootViewsTest(TestCase):
     fixtures = ['users.json']
 

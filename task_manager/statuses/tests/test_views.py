@@ -60,7 +60,7 @@ class StatusViewsTest(TestCase):
         current_status = self.create_status()
         updated_status = self.data['updated']
         response = self.client.post(reverse('statuses:update', args=[
-                                    current_status.id]),  updated_status)
+                                    current_status.id]), updated_status)
         db_status = Status.objects.get(id=current_status.id)
 
         self.assertRedirects(response, reverse('statuses:index'))

@@ -70,5 +70,5 @@ class DetailTaskView(FailureMessageMixin, AuthRequireMixin, DetailView):
     model = Task
     context_object_name = 'task'
     fields = ['id', 'name', 'status', 'author',
-              'executor', 'labels',  'created_at']
+              'executor', 'labels', 'created_at']
     template_name = 'tasks/detail.html'

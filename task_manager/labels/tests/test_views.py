@@ -59,7 +59,7 @@ class LabelViewsTest(TestCase):
         current_label = self.create_label()
         updated_label = self.data['updated']
         response = self.client.post(
-            reverse('labels:update', args=[current_label.id]),  updated_label)
+            reverse('labels:update', args=[current_label.id]), updated_label)
         db_label = Label.objects.get(id=current_label.id)
 
         self.assertRedirects(response, reverse('labels:index'))

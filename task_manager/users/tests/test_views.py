@@ -58,7 +58,7 @@ class UserViewsTest(TestCase):
         current_user = self.login()
         updated_user = self.data['updated']
         response = self.client.post(
-            reverse('users:update', args=[current_user.id]),  updated_user)
+            reverse('users:update', args=[current_user.id]), updated_user)
         db_user = User.objects.get(id=current_user.id)
 
         self.assertRedirects(response, reverse('users:index'))

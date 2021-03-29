@@ -9,6 +9,7 @@ from task_manager.mixins import FailureMessageMixin
 from task_manager.users.mixins import AuthRequireMixin
 from .models import Status
 
+
 class IndexView(FailureMessageMixin, AuthRequireMixin, ListView):
     model = Status
     context_object_name = 'statuses'

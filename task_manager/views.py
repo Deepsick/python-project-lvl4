@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import views
 from django.utils.translation import gettext_lazy as _
 
+
 class IndexView(TemplateView):
     template_name = 'task_manager/index.html'
 
