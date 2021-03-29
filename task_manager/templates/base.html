@@ -38,13 +38,13 @@
       </ul>
       <ul class="navbar-nav">
       {% if user.is_authenticated %}
-        <form action={% url 'users:logout' %} method="post">
+        <form action={% url 'logout' %} method="post">
             {% csrf_token %}
             <input class="btn nav-link" type="submit" value={% translate 'Выход' %}>
         </form>
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href={% url 'users:login' %}>{% translate 'Вход' %}</a>
+          <a class="nav-link" href={% url 'login' %}>{% translate 'Вход' %}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href={% url 'users:create' %}>{% translate 'Регистрация' %}</a>

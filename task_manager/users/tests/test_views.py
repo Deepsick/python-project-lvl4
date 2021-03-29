@@ -17,7 +17,7 @@ class UserViewsTest(TestCase):
     def login(self):
         current_user = self.data['authorized']
         self.User.objects.create_user(**current_user)
-        self.client.post(reverse('users:login'), current_user)
+        self.client.post(reverse('login'), current_user)
         return self.User.objects.get(username=current_user['username'])
 
     def test_get_index(self):
@@ -38,24 +38,8 @@ class UserViewsTest(TestCase):
         user = self.data['valid']
         response = self.client.post(reverse('users:create'), user)
         db_user = self.User.objects.get(username=user['username'])
-        self.assertRedirects(response, reverse('users:login'))
+        self.assertRedirects(response, reverse('login'))
         self.assertTrue(user, db_user)
-
-    def test_get_login(self):
-        response = self.client.get(reverse('users:login'))
-        self.assertTemplateUsed(response, 'users/login.html')
-        self.assertEqual(response.status_code, 200)
-
-    def test_post_login(self):
-        user = self.data['new']
-        self.User.objects.create_user(**user)
-        response = self.client.post(reverse('users:login'), user)
-        self.assertRedirects(response, reverse('root'))
-
-    def test_post_logout(self):
-        self.login()
-        response = self.client.post(reverse('users:logout'))
-        self.assertRedirects(response, reverse('root'))
 
     def test_get_update(self):
         user = self.login()
@@ -68,7 +52,7 @@ class UserViewsTest(TestCase):
         user = User.objects.create_user(**user)
         response = self.client.get(reverse('users:update', args=[99999]))
 
-        self.assertRedirects(response, reverse('users:login'))
+        self.assertRedirects(response, reverse('login'))
 
     def test_post_update(self):
         current_user = self.login()
@@ -91,7 +75,7 @@ class UserViewsTest(TestCase):
         User.objects.create_user(**user)
         response = self.client.get(reverse('users:delete', args=[99999]))
 
-        self.assertRedirects(response, reverse('users:login'))
+        self.assertRedirects(response, reverse('login'))
 
     def test_post_delete(self):
         user = self.login()

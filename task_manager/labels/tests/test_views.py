@@ -21,7 +21,7 @@ class LabelViewsTest(TestCase):
     def login(self):
         current_user = self.user_data['authorized']
         self.User.objects.create_user(**current_user)
-        self.client.post(reverse('users:login'), current_user)
+        self.client.post(reverse('login'), current_user)
         return self.User.objects.get(username=current_user['username'])
 
     def create_label(self):

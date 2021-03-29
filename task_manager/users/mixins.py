@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 class AuthRequireMixin(LoginRequiredMixin):
     def dispatch(self, request, *args, **kwargs):
         self.permission_denied_message = _('Вы не авторизованы')
-        self.permission_denied_url = reverse_lazy('users:login')
+        self.permission_denied_url = reverse_lazy('login')
         return super().dispatch(request, *args, **kwargs)
 
 

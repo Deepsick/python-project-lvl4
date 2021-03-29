@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model, views as auth_views
+from django.contrib.auth import get_user_model
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from django.db.models import ProtectedError
@@ -24,20 +24,7 @@ class CreateUserView(SuccessMessageMixin, CreateView):
     template_name = 'users/create.html'
     form_class = UserForm
     success_message = _("Регистрация прошла успешна")
-    success_url = reverse_lazy('users:login')
-
-
-class LoginUserView(SuccessMessageMixin, auth_views.LoginView):
-    template_name = 'users/login.html'
-    success_message = _('Вы залогинены')
-
-
-class LogoutUserView(SuccessMessageMixin, auth_views.LogoutView):
-    success_message = _('Вы разлогинены')
-
-    def dispatch(self, request, *args, **kwargs):
-        messages.success(request, self.success_message)
-        return super().dispatch(request, *args, **kwargs)
+    success_url = reverse_lazy('login')
 
 
 class UpdateUserView(
