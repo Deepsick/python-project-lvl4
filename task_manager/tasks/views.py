@@ -58,7 +58,7 @@ class DeleteTaskView(
 ):
     model = Task
     template_name = 'tasks/delete.html'
-    success_message = _('адача успешно удалена')
+    success_message = _('Задача успешно удалена')
     success_url = reverse_lazy('tasks:index')
 
     def delete(self, request, *args, **kwargs):
