@@ -8,8 +8,8 @@ User = get_user_model()
 
 
 class Task(models.Model):
-    name = models.CharField(verbose_name=_('Имя') ,max_length=200)
-    description = models.TextField(verbose_name=_('Описание'))
+    name = models.CharField(verbose_name=_('Имя'), max_length=200, unique=True)
+    description = models.TextField(verbose_name=_('Описание'), blank=True,)
     author = models.ForeignKey(
         User, related_name='author', verbose_name=_('Автор'), blank=True,
         null=True,
@@ -30,10 +30,10 @@ class Task(models.Model):
         Label,
         related_name='labels',
         through='TaskLabel',
-        verbose_name=_('Метки')
+        verbose_name=_('Метки'),
+        blank=True,
     )
     created_at = models.DateTimeField(_('created_at'), auto_now_add=True)
-
 
     def __str__(self):
         return self.name
